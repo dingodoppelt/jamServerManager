@@ -7,7 +7,9 @@ app.use(express.static('public'));
 let id = 0;
 
 function parseNdJson(ndJson) {
-    return ndJson.toString().split('\n');
+    ndJson = ndJson.toString().split('\n');
+    ndJson.pop();
+    return ndJson;
 }
 
 app.get('/methodSelection', function(req, res) {
@@ -114,7 +116,6 @@ app.get('/rpcNotifications', function(req, res) {
     });
       RPC.jamRPCServer.on('data', (data) => {
           data = parseNdJson(data);
-          data.pop();
           data.forEach ( row => {
               let parsed = JSON.parse(row);
               switch (parsed.method) {
