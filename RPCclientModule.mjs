@@ -114,7 +114,7 @@ app.get('/rpcNotifications', function(req, res) {
     });
       RPC.jamRPCServer.on('data', (data) => {
           data = parseNdJson(data);
-          data.forEach ( row => {
+          data.pop().forEach ( row => {
               let parsed = JSON.parse(row);
               switch (parsed.method) {
                 case 'jamulusclient/channelLevelListReceived':
