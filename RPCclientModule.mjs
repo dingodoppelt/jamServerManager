@@ -2,7 +2,7 @@ import jamulusRpcInterface from './jamulusrpcclient/RPCmodule.mjs';
 import express from 'express';
 const RPC = new jamulusRpcInterface(process.argv.rpcPort || 8765, process.argv.rpcSecretFilePath || '/var/opt/jamulusRPCsecret.txt');
 const app = express();
-const port = process.argv.httpPort || 3001;
+const port = process.argv.httpPort || 3000;
 app.use(express.static('public'));
 let id = 0;
 
