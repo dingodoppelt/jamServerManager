@@ -2,7 +2,7 @@ import jamulusRpcInterface from './jamulusrpcclient/RPCmodule.mjs';
 import express from 'express';
 const RPC = new jamulusRpcInterface(process.argv.rpcPort || 8765, process.argv.rpcSecretFilePath || '/var/opt/jamulusRPCsecret.txt');
 const app = express();
-const port = process.argv.httpPort || 3000;
+const port = process.argv.httpPort || 3001;
 app.use(express.static('public'));
 let id = 0;
 
@@ -114,7 +114,8 @@ app.get('/rpcNotifications', function(req, res) {
     });
       RPC.jamRPCServer.on('data', (data) => {
           data = parseNdJson(data);
-          data.pop().forEach ( row => {
+          data.pop();
+          data.forEach ( row => {
               let parsed = JSON.parse(row);
               switch (parsed.method) {
                 case 'jamulusclient/channelLevelListReceived':
