@@ -67,7 +67,7 @@ app.get('/methodSelection', function(req, res) {
             switch (req.query.method.split('/')[1]){                   
                     case 'getClients':
                         break;
-                    case 'getCompleteClientInfo':
+                    case 'getClientDetails':
                         break;
                     case 'getRecorderStatus':
                         break;
