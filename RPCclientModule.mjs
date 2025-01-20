@@ -5,9 +5,9 @@ import {fileURLToPath} from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 process.chdir(__dirname);
-const RPC = new jamulusRpcInterface(process.argv.rpcPort || 8765, process.argv.rpcSecretFilePath || '/var/opt/jamulusRPCsecret.txt');
+const RPC = new jamulusRpcInterface(process.env.JSONRPCPORT || 8765, process.env.JSONRPCSECRETFILE || '/var/opt/jamulusRPCsecret.txt');
 const app = express();
-const port = process.argv.httpPort || 3000;
+const port = 3000;
 app.use(express.static('./public'));
 let id = 0;
 
