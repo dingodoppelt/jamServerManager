@@ -134,10 +134,10 @@ app.get('/rpcNotifications', function(req, res) {
                     res.write('event: clients\n');
                     break;
                 default:
+                    res.write('data: ' + data.toString() + '\n\n');
                     break;
             }
         })
-          res.write('data: ' + data.toString() + '\n\n');
     });
 })
 
