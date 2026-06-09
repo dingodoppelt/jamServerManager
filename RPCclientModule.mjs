@@ -77,6 +77,7 @@ app.get('/methodSelection', function(req, res) {
                 case 'setStreamDestination': params.strStreamDestination = req.query.params; break;
                 case 'setWelcomeMessage': params.welcomeMessage = req.query.params; break;
                 case 'broadcastChatMessage': params.chatMessage = req.query.params; break;
+                case 'privateChatMessage': params.chatMessage = req.query.params; params.id = parseInt(req.query.id, 10); break;
             }
             break;
     }
