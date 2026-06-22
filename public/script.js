@@ -6,8 +6,8 @@ if (!!window.EventSource) {
     
     var sourceNotifications = new EventSource('/rpcNotifications')
 
-    sourceNotifications.addEventListener('message', function(e) {
-      document.getElementById('data').innerHTML = e.data;
+    sourceNotifications.addEventListener('message', function(e) {  
+    document.getElementById('data').innerHTML += e.data + '<br>';  
     }, false);
 
     sourceNotifications.addEventListener('levels', function(e) {
