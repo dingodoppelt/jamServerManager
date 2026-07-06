@@ -68,6 +68,7 @@ app.get('/methodSelection', function(req, res) {
                 case 'setMuted': params.muted = (req.query.params === 'true' || req.query.params == 1); break;
                 case 'setName': params.name = req.query.params; break;
                 case 'setSkillLevel': params.skillLevel = req.query.params; break;
+                case 'setInstrumentCode': params.instrCode = parseInt(req.query.instrCode); break;
             }
             break;
         case 'jamulusserver':
